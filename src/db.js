@@ -1,6 +1,7 @@
-import { Pool } from 'pg';
-import { HOST, DB_NAME, DB_USER, DB_PASSWORD, DB_PORT } from './config.js'
+import pkg from 'pg';
+const { Pool } = pkg;
 
+import { DB_HOST, DB_NAME, DB_USER, DB_PASSWORD, DB_PORT } from './config.js'
 
 export const pool = new Pool({
     host: DB_HOST,
@@ -17,4 +18,3 @@ pool.connect((err) => {
         console.log('Connected to the database');
     }
 });
-
