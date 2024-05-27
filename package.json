@@ -1,0 +1,19 @@
+{
+  "name": "sghi-rest-api-demo",
+  "version": "1.0.0",
+  "description": "This project was created to be the backend of the reactFlow demo project",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dan": "^0.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.5"
+  }
+}
