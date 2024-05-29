@@ -57,3 +57,4 @@ SELECT * FROM stories;
 SELECT * FROM scenes;
 
 
+SELECT * FROM stories WHERE user_id = 1;

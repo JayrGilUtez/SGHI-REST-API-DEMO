@@ -26,6 +26,23 @@ export const getStoryById = async (req, res) => {
     }
 };
 
+// Get stories by user_id
+
+export const getStoriesByUserId = async (req, res) => {
+    try {
+        const { user_id } = req.params;
+        const result = await pool.query('SELECT * FROM stories WHERE user_id = $1', [user_id]);
+        const rows = result.rows;
+        if (rows.length <= 0) {
+            return res.status(404).json({ message: 'Not found' });
+        }
+        res.send(rows);
+    } catch (error) {
+        res.status(500).send('Something went wrong.');
+        console.log(error);
+    }
+};
+
 // Create story
 
 export const createStory = async (req, res) => {
