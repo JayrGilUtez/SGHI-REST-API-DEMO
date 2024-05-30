@@ -44,13 +44,29 @@ export const getStoriesByUserId = async (req, res) => {
 };
 
 // Create story
+/**
+ * 
+ {
+  "nodes": [],
+  "edges": [],
+
+  "viewport": {
+    "x": 173.13602364931037,
+    "y": -0.8197710814616528,
+    "zoom": 0.8826148303935278
+  }
+}
+ */
 
 export const createStory = async (req, res) => {
+
+    const emptyDiagram = `{"nodes":[],"edges":[],"viewport":{"x": 0, "y":0, "zoom":1}}`;
+
     try {
-        const { user_id, title, description, isPublic, diagram } = req.body;
+        const { user_id, title, description, isPublic} = req.body;
         const result = await pool.query(
             'INSERT INTO stories (user_id, title, description, isPublic, diagram) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [user_id, title, description, isPublic, diagram]
+            [user_id, title, description, isPublic, emptyDiagram]
         );
         const rows = result.rows;
         res.status(201).send(rows);
